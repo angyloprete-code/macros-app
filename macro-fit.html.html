@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Macro Fit</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Macro Fit">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#14151A">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14151A;
+    --panel:#1C1E24;
+    --panel-alt:#22242C;
+    --border:#2B2E37;
+    --text:#EDEDEF;
+    --text-muted:#8B8D98;
+    --accent:#C9A05C;
+    --accent-soft:rgba(201,160,92,0.14);
+    --good:#6FCF97;
+    --good-soft:rgba(111,207,151,0.14);
+    --over:#E0725A;
+    --over-soft:rgba(224,114,90,0.14);
+    --carb:#7CA8D9;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;height:100%;overscroll-behavior-y:none;}
+  body{padding-bottom:calc(96px + env(safe-area-inset-bottom));min-height:100vh;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  input,select,button,textarea{font-family:inherit;}
+  ::selection{background:var(--accent-soft);}
+
+  header.topbar{
+    position:sticky;top:0;z-index:20;
+    padding:calc(16px + env(safe-area-inset-top)) 20px 14px;
+    background:linear-gradient(180deg, var(--bg) 70%, rgba(20,21,26,0));
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  header.topbar .brand{display:flex;align-items:center;gap:10px;}
+  header.topbar .brand svg{width:26px;height:26px;}
+  header.topbar h1{font-size:19px;font-weight:600;}
+  .daytype-pill{
+    display:flex;background:var(--panel);border:1px solid var(--border);border-radius:99px;padding:3px;gap:2px;
+  }
+  .daytype-pill button{
+    border:none;background:transparent;color:var(--text-muted);font-size:12px;font-weight:600;
+    padding:7px 12px;border-radius:99px;cursor:pointer;transition:.15s;
+  }
+  .daytype-pill button.active{background:var(--accent);color:#14151A;}
+
+  main{padding:4px 20px calc(90px + env(safe-area-inset-bottom));max-width:560px;margin:0 auto;}
+  .screen{display:none;}
+  .screen.active{display:block;animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px;}
+  .card h3{font-size:14px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+
+  /* Gauge cluster - signature element */
+  .gauge-wrap{display:flex;justify-content:center;padding:8px 0 4px;}
+  .gauge-legend{display:flex;justify-content:center;gap:18px;margin-top:10px;flex-wrap:wrap;}
+  .gauge-legend .item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);}
+  .gauge-legend .dot{width:8px;height:8px;border-radius:50%;}
+  .gauge-center-val{font-family:'IBM Plex Mono';font-size:28px;font-weight:600;fill:var(--text);}
+  .gauge-center-lbl{font-family:'Inter';font-size:11px;fill:var(--text-muted);}
+
+  .macro-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap;}
+  .macro-row:last-child{border-bottom:none;}
+  .macro-row .name{font-size:14px;color:var(--text);flex:0 0 auto;}
+  .macro-row .val{font-family:'IBM Plex Mono';font-size:14px;color:var(--text);flex:0 1 auto;text-align:right;white-space:normal;word-break:break-word;}
+  .macro-row .val b{color:var(--text);font-weight:600;}
+
+  label.field{display:block;margin-bottom:14px;}
+  label.field span{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:500;}
+  input[type=text],input[type=number]{
+    width:100%;background:var(--panel-alt);border:1px solid var(--border);border-radius:10px;
+    padding:11px 12px;color:var(--text);font-size:15px;font-family:'IBM Plex Mono';
+  }
+  input[type=text]{font-family:'Inter';}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+
+  button.btn{
+    background:var(--accent);color:#14151A;border:none;border-radius:10px;padding:12px 16px;
+    font-weight:600;font-size:14px;cursor:pointer;transition:.15s;width:100%;
+  }
+  button.btn:active{transform:scale(0.98);}
+  button.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);}
+  button.btn.small{width:auto;padding:8px 14px;font-size:13px;}
+  button.btn.danger{background:var(--over-soft);color:var(--over);}
+  button.btn:disabled{opacity:.4;cursor:default;}
+
+  .btnrow{display:flex;gap:10px;}
+  .btnrow button{flex:1;}
+
+  /* bottom nav */
+  nav.tabbar{
+    position:fixed;bottom:0;left:0;right:0;z-index:30;
+    background:rgba(28,30,36,0.92);backdrop-filter:blur(14px);
+    border-top:1px solid var(--border);
+    padding:8px 6px calc(8px + env(safe-area-inset-bottom));
+    display:flex;justify-content:space-around;
+  }
+  nav.tabbar button{
+    background:none;border:none;color:var(--text-muted);display:flex;flex-direction:column;
+    align-items:center;gap:3px;font-size:10.5px;font-weight:500;padding:4px 10px;cursor:pointer;
+  }
+  nav.tabbar button svg{width:22px;height:22px;}
+  nav.tabbar button.active{color:var(--accent);}
+  nav.tabbar button.active svg{stroke:var(--accent);}
+
+  .meal-select{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;}
+  .meal-select::-webkit-scrollbar{display:none;}
+  .meal-select button{
+    flex:0 0 auto;background:var(--panel);border:1px solid var(--border);color:var(--text-muted);
+    padding:9px 14px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;
+  }
+  .meal-select button.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);}
+
+  .food-search{position:relative;margin-bottom:12px;}
+  .food-search input{padding-left:36px;}
+  .food-search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--text-muted);}
+
+  .slot-row{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:var(--panel-alt);border:1px solid var(--border);border-radius:10px;
+    padding:12px;margin-bottom:10px;cursor:pointer;
+  }
+  .slot-row .slot-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:3px;}
+  .slot-row .slot-food{font-size:14px;color:var(--text);}
+  .slot-row .slot-food.placeholder{color:var(--text-muted);font-style:italic;}
+  .slot-row .slot-macros{font-size:11px;color:var(--text-muted);font-family:'IBM Plex Mono';margin-top:2px;}
+  .slot-row svg{width:16px;height:16px;stroke:var(--text-muted);flex:0 0 auto;}
+  .fixed-item-row{
+    background:var(--panel-alt);border:1px solid var(--border);border-radius:10px;
+    padding:12px;margin-bottom:10px;
+  }
+  .fixed-item-row .fi-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;cursor:pointer;}
+  .fixed-item-row .fi-name{font-size:14px;color:var(--text);}
+  .fixed-item-row .fi-name.placeholder{color:var(--text-muted);font-style:italic;}
+  .fixed-item-row .fi-remove{background:none;border:none;color:var(--over);font-size:13px;font-weight:600;cursor:pointer;flex:0 0 auto;}
+  .fixed-item-row .fi-grams{display:flex;align-items:center;gap:8px;}
+  .fixed-item-row .fi-grams input{width:90px;}
+  .fixed-item-row .fi-grams span{font-size:12px;color:var(--text-muted);}
+
+  .food-item{
+    display:flex;align-items:center;justify-content:space-between;padding:11px 4px;
+    border-bottom:1px solid var(--border);cursor:pointer;
+  }
+  .food-item:last-child{border-bottom:none;}
+  .food-item .fname{font-size:14px;}
+  .food-item .fmacros{font-size:11px;color:var(--text-muted);font-family:'IBM Plex Mono';margin-top:2px;}
+  .checkbox{
+    width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);flex:0 0 20px;
+    display:flex;align-items:center;justify-content:center;transition:.15s;
+  }
+  .checkbox.checked{background:var(--accent);border-color:var(--accent);}
+  .checkbox svg{width:13px;height:13px;stroke:#14151A;display:none;}
+  .checkbox.checked svg{display:block;}
+
+  .result-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
+  .result-row:last-child{border-bottom:none;}
+  .result-row .fname{font-size:14px;font-weight:500;}
+  .result-row .grams{font-family:'IBM Plex Mono';font-size:18px;font-weight:600;color:var(--accent);}
+  .result-row .grams span{font-size:11px;color:var(--text-muted);font-weight:400;margin-left:2px;}
+
+  .delta-badge{
+    display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;
+    padding:3px 8px;border-radius:99px;font-family:'IBM Plex Mono';
+  }
+  .delta-badge.good{background:var(--good-soft);color:var(--good);}
+  .delta-badge.over{background:var(--over-soft);color:var(--over);}
+
+  .empty-state{text-align:center;padding:40px 20px;color:var(--text-muted);}
+  .empty-state svg{width:40px;height:40px;stroke:var(--text-muted);margin-bottom:12px;}
+  .empty-state p{font-size:13px;line-height:1.5;}
+
+  .modal-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:50;display:none;
+    align-items:flex-end;justify-content:center;
+  }
+  .modal-bg.show{display:flex;}
+  .modal{
+    background:var(--panel);border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));
+    width:100%;max-width:560px;max-height:88vh;overflow-y:auto;
+    animation:slideUp .25s ease;
+  }
+  @keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:none;opacity:1;}}
+  .modal-handle{width:36px;height:4px;background:var(--border);border-radius:99px;margin:0 auto 16px;}
+  .modal h2{font-size:17px;margin-bottom:16px;}
+
+  .scan-btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    border:1.5px dashed var(--border);border-radius:12px;padding:14px;color:var(--accent);
+    font-size:13px;font-weight:600;cursor:pointer;margin-bottom:16px;background:var(--accent-soft);
+  }
+  .scan-btn svg{width:18px;height:18px;stroke:var(--accent);}
+
+  .toast{
+    position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--panel-alt);border:1px solid var(--border);color:var(--text);
+    padding:11px 18px;border-radius:10px;font-size:13px;font-weight:500;z-index:60;
+    opacity:0;transition:.25s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .segmented{display:flex;background:var(--panel-alt);border-radius:10px;padding:3px;margin-bottom:14px;}
+  .segmented button{flex:1;background:none;border:none;color:var(--text-muted);padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;}
+  .segmented button.active{background:var(--accent);color:#14151A;}
+
+  .note{font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:4px;}
+  .divider{height:1px;background:var(--border);margin:16px 0;}
+  .swipe-hint{font-size:11px;color:var(--text-muted);text-align:center;margin-top:8px;}
+  .install-banner{
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:13px 14px;
+    margin-bottom:14px;font-size:12.5px;line-height:1.5;display:flex;gap:10px;align-items:flex-start;
+  }
+  .install-banner svg{width:18px;height:18px;stroke:var(--accent);flex:0 0 18px;margin-top:1px;}
+  .install-banner button.close{background:none;border:none;color:var(--text-muted);font-size:18px;margin-left:auto;cursor:pointer;line-height:1;}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#C9A05C" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <h1>Macro Fit</h1>
+  </div>
+  <div class="daytype-pill" id="dayTypePill">
+    <button data-type="train" class="active">Training</button>
+    <button data-type="rest">Riposo</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section class="screen active" id="screen-home">
+    <div id="installBanner"></div>
+    <div class="card">
+      <h3>Bilancio giornaliero</h3>
+      <div class="gauge-wrap"><svg id="gaugeSvg" width="220" height="220" viewBox="0 0 220 220"></svg></div>
+      <div class="gauge-legend" id="gaugeLegend"></div>
+      <button class="btn ghost small" id="resetTodayBtn" style="margin-top:12px;">Azzera pasti di oggi</button>
+    </div>
+    <div class="card">
+      <h3>Target di oggi</h3>
+      <div id="homeTargets"></div>
+    </div>
+    <div class="card">
+      <h3>Pasti pianificati</h3>
+      <div id="homeMeals"></div>
+    </div>
+  </section>
+
+  <!-- MEALS / CALCOLATORE -->
+  <section class="screen" id="screen-meals">
+    <div class="meal-select" id="mealTabs"></div>
+    <div class="card" id="mealTargetCard"></div>
+
+    <div class="card">
+      <h3>Alimenti variabili &middot; calcolati</h3>
+      <div class="note" style="margin-bottom:12px;">Scegli una fonte per ciascun macro: l'app calcola i grammi esatti di questi tre per centrare il pasto, tenendo conto degli alimenti fissi qui sotto.</div>
+      <div id="varSlots"></div>
+    </div>
+
+    <div class="card">
+      <h3>Alimenti a grammatura fissa <span style="text-transform:none;font-weight:400;">(facoltativi, max 5)</span></h3>
+      <div id="fixedItemsList"></div>
+      <button class="btn ghost small" id="addFixedItemBtn" style="margin-top:6px;">+ Aggiungi alimento fisso</button>
+    </div>
+
+    <button class="btn" id="calcBtn">Calcola grammi</button>
+
+    <div class="card" id="resultCard" style="display:none;margin-top:14px;"></div>
+  </section>
+
+  <!-- Food picker modal (single-select, used for variable slots and fixed items) -->
+  <div class="modal-bg" id="pickerModalBg">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <h2 id="pickerModalTitle">Scegli un alimento</h2>
+      <div class="food-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input type="text" id="pickerSearch" placeholder="Cerca alimento...">
+      </div>
+      <div id="pickerList"></div>
+    </div>
+  </div>
+
+  <!-- FOODS -->
+  <section class="screen" id="screen-foods">
+    <div class="card">
+      <div class="food-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input type="text" id="foodsSearch" placeholder="Cerca nel database...">
+      </div>
+      <div id="foodsList"></div>
+    </div>
+    <div class="btnrow">
+      <button class="btn" id="addFoodBtn">+ Aggiungi alimento</button>
+      <button class="btn ghost" id="importDefaultsBtn">Importa alimenti predefiniti</button>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="screen" id="screen-settings">
+    <div class="card">
+      <h3>Ciclo calorico</h3>
+      <div class="note" style="margin-bottom:14px;">Imposta target diversi per i giorni di allenamento e di riposo. Usa il selettore in alto per passare dall'uno all'altro.</div>
+      <div class="segmented" id="settingsDayToggle">
+        <button data-type="train" class="active">Giorno di allenamento</button>
+        <button data-type="rest">Giorno di riposo</button>
+      </div>
+      <label class="field"><span>Kcal totali</span><input type="number" id="setKcal" inputmode="decimal"></label>
+      <div class="field-row">
+        <label class="field"><span>Proteine (g)</span><input type="number" id="setProt" inputmode="decimal"></label>
+        <label class="field"><span>Carboidrati (g)</span><input type="number" id="setCarb" inputmode="decimal"></label>
+        <label class="field"><span>Grassi (g)</span><input type="number" id="setFat" inputmode="decimal"></label>
+      </div>
+      <div class="note" id="kcalCheckNote"></div>
+    </div>
+
+    <div class="card">
+      <h3>Macro per pasto &middot; <span id="dayTypeLabelMeals"></span></h3>
+      <div class="note" style="margin-bottom:10px;" id="mealsSumNote"></div>
+      <div id="mealsSettingsList"></div>
+      <div class="btnrow" style="margin-top:10px;">
+        <button class="btn ghost small" id="addMealBtn">+ Aggiungi pasto</button>
+        <button class="btn ghost small" id="splitEvenBtn">Distribuisci equamente</button>
+      </div>
+    </div>
+
+    <div class="note" style="text-align:center;margin-top:4px;" id="autosaveNote">Le modifiche si salvano automaticamente</div>
+
+    <div class="card" style="margin-top:14px;">
+      <h3>Backup e ripristino</h3>
+      <div class="note" style="margin-bottom:12px;">I tuoi dati restano salvati sul telefono anche se cancelli l'icona dell'app dalla Home (finché non svuoti i dati di Safari o cambi telefono). Per essere ancora più sicura, scarica ogni tanto un backup: potrai ripristinarlo in un attimo se serve.</div>
+      <div class="btnrow">
+        <button class="btn ghost" id="exportBackupBtn">Esporta backup</button>
+        <button class="btn ghost" id="importBackupBtn">Importa backup</button>
+      </div>
+      <input type="file" id="backupFileInput" accept="application/json" style="display:none;">
+      <div class="note" id="backupNote" style="margin-top:8px;"></div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="tabbar">
+  <button data-screen="home" class="active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+    Home
+  </button>
+  <button data-screen="meals">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+    Pasti
+  </button>
+  <button data-screen="foods">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="1.8"><path d="M12 3c-3 2-4 5-4 8a4 4 0 008 0c0-3-1-6-4-8z"/><path d="M12 3v4"/></svg>
+    Alimenti
+  </button>
+  <button data-screen="settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>
+    Impostazioni
+  </button>
+</nav>
+
+<!-- Add / Edit food modal -->
+<div class="modal-bg" id="foodModalBg">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h2 id="foodModalTitle">Nuovo alimento</h2>
+    <div class="scan-btn" id="scanBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M20 8V6a2 2 0 00-2-2h-2M20 16v2a2 2 0 01-2 2h-2"/><circle cx="12" cy="12" r="3"/></svg>
+      <span id="scanBtnLabel">Scansiona tabella nutrizionale</span>
+    </div>
+    <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none;">
+    <div class="note" id="scanNote" style="display:none;margin-bottom:14px;"></div>
+
+    <label class="field"><span>Nome alimento</span><input type="text" id="fName" placeholder="es. Petto di pollo"></label>
+    <div class="note" style="margin-bottom:10px;">Valori per 100 g</div>
+    <div class="field-row">
+      <label class="field"><span>Kcal</span><input type="number" id="fKcal" inputmode="decimal"></label>
+      <label class="field"><span>Proteine (g)</span><input type="number" id="fProt" inputmode="decimal"></label>
+      <label class="field"><span>Carbo (g)</span><input type="number" id="fCarb" inputmode="decimal"></label>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>Grassi (g)</span><input type="number" id="fFat" inputmode="decimal"></label>
+      <label class="field"><span>Fibre (g)</span><input type="number" id="fFiber" inputmode="decimal"></label>
+      <div></div>
+    </div>
+    <div class="btnrow" style="margin-top:6px;">
+      <button class="btn ghost" id="deleteFoodBtn" style="display:none;">Elimina</button>
+      <button class="btn" id="saveFoodBtn">Salva</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ---------- Storage helpers ---------- */
+const LS_SETTINGS = 'mf_settings_v1';
+const LS_FOODS = 'mf_foods_v1';
+const LS_MEALSEL = 'mf_mealsel_v1';
+const LS_BANNER = 'mf_bannerdismissed_v1';
+const LS_LASTDATE = 'mf_lastdate_v1';
+
+function defaultSettings(){
+  return {
+    train: { kcal: 1950, protein: 175, carbs: 210, fat: 55 },
+    rest:  { kcal: 1750, protein: 175, carbs: 140, fat: 60 },
+    meals: [
+      {id:'m1', name:'Pasto 1'},
+      {id:'m2', name:'Pasto 2'},
+      {id:'m3', name:'Pasto 3'},
+      {id:'m4', name:'Pasto 4'},
+      {id:'m5', name:'Pasto 5'}
+    ],
+    mealTargets: {} // mealTargets.train['m1'] = {protein,carbs,fat}, computed on first split
+  };
+}
+
+function loadSettings(){
+  try{
+    const raw = localStorage.getItem(LS_SETTINGS);
+    if(!raw) { const d = defaultSettings(); splitEvenly(d,'train'); splitEvenly(d,'rest'); return d; }
+    return JSON.parse(raw);
+  }catch(e){ return defaultSettings(); }
+}
+function saveSettings(s){ localStorage.setItem(LS_SETTINGS, JSON.stringify(s)); }
+
+const DEFAULT_FOODS = [
+["Pasta normale (cruda)",353,12.5,71,1.5],
+["Pasta integrale (cruda)",335,13,63,2.9],
+["Riso Carnaroli (crudo)",332,6.7,74.4,0.6],
+["Riso Basmati (crudo)",340,7.5,78,0.6],
+["Riso Venere (crudo)",343,8.3,72,2.9],
+["Quinoa (cruda)",368,14.1,64.2,6.1],
+["Grano saraceno (crudo)",343,13.3,71.5,3.4],
+["Farina bianca 00",340,11,74,1],
+["Farro perlato (crudo)",335,12.9,67,2.5],
+["Orzo perlato (crudo)",350,10.4,73.5,1.5],
+["Pane bianco",275,8,56,1.4],
+["Pane integrale",253,9,43,2.5],
+["Pane ai 5 cereali",260,9.5,46,3],
+["Pane di segale",259,8.5,48,1.5],
+["Gallette di mais",384,8,81,3],
+["Farina integrale",320,13,63,2.5],
+["Patate (crude)",77,2,17,0.1],
+["Patate dolci (crude)",86,1.6,20,0.1],
+["Fette biscottate integrali",401,10,71,8],
+["Fette Wasa",335,10,65,1.5],
+["Weetabix",362,12,69,2.4],
+["Cornflakes di mais",378,7,84,0.9],
+["Banana",89,1.1,22.8,0.3],
+["Albicocca",48,1.4,11,0.4],
+["Pesca",39,0.9,9.5,0.3],
+["Mela Fuji",52,0.3,14,0.2],
+["Pera",57,0.4,15,0.1],
+["Melone",34,0.8,8,0.2],
+["Mirtilli",57,0.7,14.5,0.3],
+["Crema di riso",370,7,82,1],
+["Miglio (crudo)",378,11,73,4.2],
+["Fiocchi d'avena",379,13.5,58,7],
+["Edamame (bolliti)",121,11,10,5],
+["Petto di tacchino (crudo)",104,24,0,1],
+["Macinato di tacchino (crudo)",120,21,0,4],
+["Petto di pollo (crudo)",106,23,0,1.2],
+["Macinato di pollo (crudo)",143,20,0,7],
+["Manzo magro (crudo)",106,21,0,2.5],
+["Bresaola",151,32,0.5,2.6],
+["Affettato petto di pollo",100,20,1,2],
+["Affettato petto di tacchino",95,19,1,1.5],
+["Prosciutto crudo snello Rovagnati",155,28,0.5,5],
+["Prosciutto cotto snello Rovagnati",100,18,1,2.5],
+["Carne di cavallo (cruda)",143,21,0,6],
+["Merluzzo (crudo)",76,17,0,0.6],
+["Orata (cruda)",121,20,0,4.5],
+["Branzino (crudo)",97,18,0,2.5],
+["Salmone di allevamento (crudo)",208,20,0,13],
+["Gamberetti (crudi)",71,15,0.9,0.5],
+["Calamari (crudi)",92,15.6,3.1,1.4],
+["Tonno al naturale (sgocciolato)",116,25,0,1],
+["Trancio di tonno fresco (crudo)",144,23.3,0,4.9],
+["Polipo (crudo)",82,14.9,2.2,1],
+["Yogurt greco 0%",57,10,3.6,0.2],
+["Philadelphia Protein",105,13,3,4.5],
+["Exquisa Fit Line High Protein",65,12,4,0.2],
+["Feta light Zobras",180,16,3,12],
+["Whey protein (polvere)",380,80,7,5],
+["Seppie (crude)",72,14.7,1,1],
+["Fiocchi high protein milk",80,13,3.5,1.5],
+["Pesce spada (crudo)",109,20,0,3],
+["Uovo (intero, crudo)",143,12.5,0.7,9.5],
+["Mandorle",579,21,22,50],
+["Anacardi",553,18,30,44],
+["Arachidi senza sale",567,25.8,16,49],
+["Olio EVO",884,0,0,100],
+["Avocado",160,2,8.5,14.7],
+["Cocco grattugiato",660,6.9,24,64],
+["Noci",654,15.2,13.7,65.2],
+["Burro di arachidi 100%",588,25,20,50],
+["Burro di anacardi 100%",570,18,27,45],
+["Burro di mandorle 100%",614,21,19,55],
+["Cioccolato fondente 99%",600,12,20,50],
+["Nutella",539,6.3,57.5,30.9],
+["Semi di chia",486,17,42,31],
+["Semi di zucca",559,30,11,49],
+["Semi di lino",534,18,29,42],
+["Semi di girasole",584,21,20,51],
+["Salsa tahina",595,17,21,54],
+["Marmellata Natu' Rigoni di Asiago",130,0.5,30,0.2],
+["Finocchi (crudi)",31,1.2,7,0.2],
+["Zucchine (crude)",17,1.2,3.1,0.3],
+["Pomodori (crudi)",18,0.9,3.9,0.2],
+["Insalata gentile (cruda)",15,1.4,2.9,0.2],
+["Valeriana (cruda)",21,2,3.6,0.4],
+["Radicchio variegato (crudo)",13,1.4,3,0.1],
+["Radicchio rosso (crudo)",13,1.4,3,0.1],
+["Melanzane (crude)",25,1,6,0.2],
+["Peperoni (crudi)",31,1,6,0.3],
+["Cipolla (cruda)",40,1.1,9.3,0.1],
+["Mozzarella di bufala campana DOP",288,16.7,0.4,24.5],
+["Parmigiano Reggiano",392,33,0.9,28.4],
+["Kinder Bueno",570,7.6,50,38]
+].map((f,i)=>({id:'d'+i, name:f[0], kcal:f[1], protein:f[2], carbs:f[3], fat:f[4], fiber:0}));
+
+function loadFoods(){
+  try{
+    const raw = localStorage.getItem(LS_FOODS);
+    if(!raw){
+      // primo avvio: pre-carica il database di alimenti predefiniti
+      saveFoods(DEFAULT_FOODS);
+      return DEFAULT_FOODS.slice();
+    }
+    return JSON.parse(raw);
+  }catch(e){ return []; }
+}
+function saveFoods(f){ localStorage.setItem(LS_FOODS, JSON.stringify(f)); }
+
+function loadMealSel(){
+  try{ const raw = localStorage.getItem(LS_MEALSEL); return raw?JSON.parse(raw):{}; }catch(e){ return {}; }
+}
+function saveMealSel(m){ localStorage.setItem(LS_MEALSEL, JSON.stringify(m)); }
+
+/* ---------- State ---------- */
+let state = {
+  dayType: 'train',
+  settings: loadSettings(),
+  foods: loadFoods(),
+  mealSel: loadMealSel(), // {dayType: {mealId: [foodId,...]}}
+  currentMealId: null,
+  currentResult: null,
+  editingFoodId: null
+};
+
+function splitEvenly(settings, dayType){
+  const t = settings[dayType];
+  const n = settings.meals.length;
+  if(!settings.mealTargets) settings.mealTargets = {};
+  if(!settings.mealTargets[dayType]) settings.mealTargets[dayType] = {};
+  settings.meals.forEach(m=>{
+    settings.mealTargets[dayType][m.id] = {
+      protein: round1(t.protein/n),
+      carbs: round1(t.carbs/n),
+      fat: round1(t.fat/n)
+    };
+  });
+}
+
+function round1(x){ return Math.round(x*10)/10; }
+function round0(x){ return Math.round(x); }
+
+function mealKcal(m){ return round0(m.protein*4 + m.carbs*4 + m.fat*9); }
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ---------- Navigation ---------- */
+document.querySelectorAll('nav.tabbar button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('nav.tabbar button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById('screen-'+btn.dataset.screen).classList.add('active');
+    if(btn.dataset.screen==='home') renderHome();
+    if(btn.dataset.screen==='meals') renderMeals();
+    if(btn.dataset.screen==='foods') renderFoodsList();
+    if(btn.dataset.screen==='settings') renderSettings();
+  });
+});
+
+document.getElementById('dayTypePill').addEventListener('click', (e)=>{
+  const b = e.target.closest('button'); if(!b) return;
+  state.dayType = b.dataset.type;
+  document.querySelectorAll('#dayTypePill button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  refreshActiveScreen();
+});
+
+function refreshActiveScreen(){
+  const active = document.querySelector('.screen.active').id;
+  if(active==='screen-home') renderHome();
+  if(active==='screen-meals') renderMeals();
+  if(active==='screen-settings') renderSettings();
+}
+
+/* ================= HOME ================= */
+function renderHome(){
+  renderInstallBanner();
+  const t = state.settings[state.dayType];
+  // consumed = sum of computed grams across meals with saved results this session-independent -> we recompute from mealSel with last solved grams stored
+  let consumed = {protein:0, carbs:0, fat:0, kcal:0};
+  const sel = state.mealSel[state.dayType] || {};
+  state.settings.meals.forEach(m=>{
+    const entry = sel[m.id];
+    if(entry && entry.result){
+      entry.result.forEach(r=>{
+        consumed.protein += r.grams * r.food.protein/100;
+        consumed.carbs += r.grams * r.food.carbs/100;
+        consumed.fat += r.grams * r.food.fat/100;
+        consumed.kcal += r.grams * r.food.kcal/100;
+      });
+    }
+  });
+
+  drawGauge(consumed, t);
+
+  const homeTargets = document.getElementById('homeTargets');
+  homeTargets.innerHTML = `
+    <div class="macro-row"><span class="name">Kcal</span><span class="val mono"><b>${t.kcal}</b></span></div>
+    <div class="macro-row"><span class="name">Proteine</span><span class="val mono"><b>${t.protein}</b> g</span></div>
+    <div class="macro-row"><span class="name">Carboidrati</span><span class="val mono"><b>${t.carbs}</b> g</span></div>
+    <div class="macro-row"><span class="name">Grassi</span><span class="val mono"><b>${t.fat}</b> g</span></div>
+  `;
+
+  const homeMeals = document.getElementById('homeMeals');
+  if(state.settings.meals.length===0){
+    homeMeals.innerHTML = `<div class="note">Nessun pasto configurato. Vai su Impostazioni.</div>`;
+  } else {
+    homeMeals.innerHTML = state.settings.meals.map(m=>{
+      const mt = (state.settings.mealTargets[state.dayType]||{})[m.id] || {protein:0,carbs:0,fat:0};
+      const entry = sel[m.id];
+      const done = entry && entry.result;
+      return `<div class="macro-row">
+        <span class="name">${escapeHtml(m.name)} ${done?'<span class=\"delta-badge good\" style=\"margin-left:6px;\">calcolato</span>':''}</span>
+        <span class="val mono">${mealKcal(mt)} kcal</span>
+      </div>`;
+    }).join('');
+  }
+}
+
+function renderInstallBanner(){
+  const el = document.getElementById('installBanner');
+  const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+  if(isStandalone || localStorage.getItem(LS_BANNER)){ el.innerHTML=''; return; }
+  el.innerHTML = `<div class="install-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+    <div>Per usarla come app: tocca <b>Condividi</b> in Safari, poi <b>Aggiungi a Home</b>.</div>
+    <button class="close" id="dismissBanner">&times;</button>
+  </div>`;
+  document.getElementById('dismissBanner').addEventListener('click', ()=>{
+    localStorage.setItem(LS_BANNER,'1'); renderInstallBanner();
+  });
+}
+
+function drawGauge(consumed, target){
+  const svg = document.getElementById('gaugeSvg');
+  const cx=110, cy=110;
+  const rings = [
+    {r:95, val:consumed.protein, target:target.protein, color:'#C9A05C'},
+    {r:75, val:consumed.carbs, target:target.carbs, color:'#7CA8D9'},
+    {r:55, val:consumed.fat, target:target.fat, color:'#6FCF97'}
+  ];
+  let svgContent = '';
+  rings.forEach(ring=>{
+    const pct = ring.target>0 ? Math.min(ring.val/ring.target,1) : 0;
+    const circ = 2*Math.PI*ring.r;
+    const offset = circ*(1-pct);
+    svgContent += `<circle cx="${cx}" cy="${cy}" r="${ring.r}" fill="none" stroke="#2B2E37" stroke-width="10"/>`;
+    svgContent += `<circle cx="${cx}" cy="${cy}" r="${ring.r}" fill="none" stroke="${ring.color}" stroke-width="10"
+      stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke-linecap="round"
+      transform="rotate(-90 ${cx} ${cy})" style="transition:stroke-dashoffset .5s ease"/>`;
+  });
+  const kcalPct = target.kcal>0 ? Math.round(Math.min(consumed.kcal/target.kcal,1.5)*100) : 0;
+  svgContent += `<text x="${cx}" y="${cy-4}" text-anchor="middle" class="gauge-center-val">${Math.round(consumed.kcal)}</text>`;
+  svgContent += `<text x="${cx}" y="${cy+16}" text-anchor="middle" class="gauge-center-lbl">di ${target.kcal} kcal</text>`;
+  svg.innerHTML = svgContent;
+
+  const legend = document.getElementById('gaugeLegend');
+  legend.innerHTML = `
+    <div class="item"><span class="dot" style="background:#C9A05C"></span>Proteine ${round0(consumed.protein)}/${target.protein}g</div>
+    <div class="item"><span class="dot" style="background:#7CA8D9"></span>Carbo ${round0(consumed.carbs)}/${target.carbs}g</div>
+    <div class="item"><span class="dot" style="background:#6FCF97"></span>Grassi ${round0(consumed.fat)}/${target.fat}g</div>
+  `;
+}
+
+/* ================= MEALS / SOLVER ================= */
+function renderMeals(){
+  if(!state.currentMealId && state.settings.meals.length>0){
+    state.currentMealId = state.settings.meals[0].id;
+  }
+  const tabs = document.getElementById('mealTabs');
+  tabs.innerHTML = state.settings.meals.map(m=>
+    `<button data-id="${m.id}" class="${m.id===state.currentMealId?'active':''}">${escapeHtml(m.name)}</button>`
+  ).join('');
+  tabs.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      state.currentMealId = b.dataset.id;
+      state.currentResult = null;
+      renderMeals();
+    });
+  });
+
+  const mt = (state.settings.mealTargets[state.dayType]||{})[state.currentMealId] || {protein:0,carbs:0,fat:0};
+  const targetCard = document.getElementById('mealTargetCard');
+  targetCard.innerHTML = `
+    <h3>Target del pasto</h3>
+    <div class="macro-row"><span class="name">Kcal</span><span class="val mono"><b>${mealKcal(mt)}</b></span></div>
+    <div class="macro-row"><span class="name">Proteine</span><span class="val mono"><b>${mt.protein}</b> g</span></div>
+    <div class="macro-row"><span class="name">Carboidrati</span><span class="val mono"><b>${mt.carbs}</b> g</span></div>
+    <div class="macro-row"><span class="name">Grassi</span><span class="val mono"><b>${mt.fat}</b> g</span></div>
+  `;
+
+  renderVarSlots();
+  renderFixedItemsList();
+
+  const resultCard = document.getElementById('resultCard');
+  const sel = state.mealSel[state.dayType] && state.mealSel[state.dayType][state.currentMealId];
+  if(sel && sel.result){
+    state.currentResult = sel.result;
+    showResult(sel.result, mt);
+  } else {
+    resultCard.style.display='none';
+  }
+}
+
+/* ---------- Meal data model: 3 variable slots + up to 5 fixed-grams items ---------- */
+function getMealEntry(){
+  if(!state.mealSel[state.dayType]) state.mealSel[state.dayType] = {};
+  if(!state.mealSel[state.dayType][state.currentMealId]){
+    state.mealSel[state.dayType][state.currentMealId] = {varSlots:{carbs:null,protein:null,fat:null}, fixedItems:[]};
+  }
+  const entry = state.mealSel[state.dayType][state.currentMealId];
+  if(!entry.varSlots) entry.varSlots = {carbs:null,protein:null,fat:null};
+  if(!entry.fixedItems) entry.fixedItems = [];
+  return entry;
+}
+
+const VAR_SLOTS_DEF = [
+  {key:'carbs', label:'Fonte carboidrati'},
+  {key:'protein', label:'Fonte proteine'},
+  {key:'fat', label:'Fonte grassi'}
+];
+
+function renderVarSlots(){
+  const entry = getMealEntry();
+  const container = document.getElementById('varSlots');
+  container.innerHTML = VAR_SLOTS_DEF.map(s=>{
+    const foodId = entry.varSlots[s.key];
+    const food = foodId ? state.foods.find(f=>f.id===foodId) : null;
+    return `<div class="slot-row" data-slot="${s.key}">
+      <div>
+        <div class="slot-label">${s.label}</div>
+        <div class="slot-food ${food?'':'placeholder'}">${food?escapeHtml(food.name):'Tocca per scegliere'}</div>
+        ${food?`<div class="slot-macros">${food.kcal}kcal &middot; P${food.protein} C${food.carbs} G${food.fat} /100g</div>`:''}
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>`;
+  }).join('');
+  container.querySelectorAll('.slot-row').forEach(row=>{
+    row.addEventListener('click', ()=>{
+      const key = row.dataset.slot;
+      const label = VAR_SLOTS_DEF.find(s=>s.key===key).label;
+      openPicker(label, (foodId)=>{
+        const e = getMealEntry();
+        e.varSlots[key] = foodId;
+        saveMealSel(state.mealSel);
+        renderVarSlots();
+      });
+    });
+  });
+}
+
+function renderFixedItemsList(){
+  const entry = getMealEntry();
+  const list = document.getElementById('fixedItemsList');
+  if(entry.fixedItems.length===0){
+    list.innerHTML = `<div class="note">Nessun alimento fisso aggiunto.</div>`;
+  } else {
+    list.innerHTML = entry.fixedItems.map((item,idx)=>{
+      const food = item.foodId ? state.foods.find(f=>f.id===item.foodId) : null;
+      return `<div class="fixed-item-row">
+        <div class="fi-top" data-idx="${idx}">
+          <div class="fi-name ${food?'':'placeholder'}">${food?escapeHtml(food.name):'Tocca per scegliere alimento'}</div>
+          <button class="fi-remove" data-idx="${idx}">Rimuovi</button>
+        </div>
+        <div class="fi-grams">
+          <input type="number" inputmode="decimal" class="fiGramsInput" data-idx="${idx}" placeholder="grammi" value="${item.grams!=null?item.grams:''}">
+          <span>grammi fissi</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('addFixedItemBtn').style.display = entry.fixedItems.length>=5 ? 'none' : 'block';
+
+  list.querySelectorAll('.fi-top').forEach(row=>{
+    row.addEventListener('click', (e)=>{
+      if(e.target.classList.contains('fi-remove')) return;
+      const idx = parseInt(row.dataset.idx);
+      openPicker('Alimento fisso', (foodId)=>{
+        const e2 = getMealEntry();
+        e2.fixedItems[idx].foodId = foodId;
+        saveMealSel(state.mealSel);
+        renderFixedItemsList();
+      });
+    });
+  });
+  list.querySelectorAll('.fi-remove').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const idx = parseInt(btn.dataset.idx);
+      const e2 = getMealEntry();
+      e2.fixedItems.splice(idx,1);
+      saveMealSel(state.mealSel);
+      renderFixedItemsList();
+    });
+  });
+  list.querySelectorAll('.fiGramsInput').forEach(inp=>{
+    inp.addEventListener('click', (e)=>e.stopPropagation());
+    inp.addEventListener('input', ()=>{
+      const idx = parseInt(inp.dataset.idx);
+      const e2 = getMealEntry();
+      const v = inp.value.trim()==='' ? null : parseFloat(inp.value);
+      e2.fixedItems[idx].grams = v;
+      saveMealSel(state.mealSel);
+    });
+  });
+}
+
+document.getElementById('addFixedItemBtn').addEventListener('click', ()=>{
+  const entry = getMealEntry();
+  if(entry.fixedItems.length>=5) return;
+  entry.fixedItems.push({foodId:null, grams:null});
+  saveMealSel(state.mealSel);
+  renderFixedItemsList();
+});
+
+/* ---------- Generic single-select food picker modal ---------- */
+let pickerCallback = null;
+function openPicker(title, callback){
+  document.getElementById('pickerModalTitle').textContent = title;
+  document.getElementById('pickerSearch').value = '';
+  pickerCallback = callback;
+  renderPickerList();
+  document.getElementById('pickerModalBg').classList.add('show');
+}
+function closePicker(){ document.getElementById('pickerModalBg').classList.remove('show'); }
+function renderPickerList(){
+  const q = (document.getElementById('pickerSearch').value||'').toLowerCase();
+  const list = document.getElementById('pickerList');
+  const filtered = state.foods.filter(f=>f.name.toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name));
+  if(filtered.length===0){
+    list.innerHTML = `<div class="empty-state"><p>${state.foods.length===0?'Il database alimenti è vuoto. Aggiungine dalla scheda Alimenti.':'Nessun alimento trovato.'}</p></div>`;
+    return;
+  }
+  list.innerHTML = filtered.map(f=>`
+    <div class="food-item" data-id="${f.id}">
+      <div>
+        <div class="fname">${escapeHtml(f.name)}</div>
+        <div class="fmacros">${f.kcal}kcal &middot; P${f.protein} C${f.carbs} G${f.fat} /100g</div>
+      </div>
+    </div>
+  `).join('');
+  list.querySelectorAll('.food-item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      if(pickerCallback) pickerCallback(item.dataset.id);
+      closePicker();
+    });
+  });
+}
+document.getElementById('pickerSearch').addEventListener('input', renderPickerList);
+document.getElementById('pickerModalBg').addEventListener('click', (e)=>{ if(e.target.id==='pickerModalBg') closePicker(); });
+
+document.getElementById('calcBtn').addEventListener('click', ()=>{
+  const entry = getMealEntry();
+  const {carbs, protein, fat} = entry.varSlots;
+  if(!carbs || !protein || !fat){ toast('Scegli una fonte per ciascuno dei 3 macro: carboidrati, proteine e grassi'); return; }
+  const carbFood = state.foods.find(f=>f.id===carbs);
+  const proteinFood = state.foods.find(f=>f.id===protein);
+  const fatFood = state.foods.find(f=>f.id===fat);
+  if(!carbFood || !proteinFood || !fatFood){ toast('Uno degli alimenti scelti non esiste più: selezionalo di nuovo'); return; }
+
+  const fixedResolved = entry.fixedItems
+    .filter(it=>it.foodId && it.grams!=null && !isNaN(it.grams) && it.grams>=0)
+    .map(it=>({food: state.foods.find(f=>f.id===it.foodId), grams: it.grams}))
+    .filter(x=>x.food);
+
+  const mt = (state.settings.mealTargets[state.dayType]||{})[state.currentMealId] || {protein:0,carbs:0,fat:0};
+  const result = solveMeal3(carbFood, proteinFood, fatFood, fixedResolved, mt);
+  if(!result){ toast('Impossibile calcolare: le 3 fonti scelte sono troppo simili tra loro. Prova alimenti diversi.'); return; }
+  entry.result = result;
+  saveMealSel(state.mealSel);
+  showResult(result, mt);
+});
+
+function showResult(result, target){
+  const card = document.getElementById('resultCard');
+  card.style.display='block';
+  let achieved = {protein:0,carbs:0,fat:0,kcal:0};
+  result.forEach(r=>{
+    achieved.protein += r.grams*r.food.protein/100;
+    achieved.carbs += r.grams*r.food.carbs/100;
+    achieved.fat += r.grams*r.food.fat/100;
+    achieved.kcal += r.grams*r.food.kcal/100;
+  });
+  function pctOff(val, tgt){ return tgt>0 ? Math.abs(val-tgt)/tgt*100 : 0; }
+  function badge(val, tgt){
+    const diff = val-tgt;
+    const cls = pctOff(val,tgt)<=6 ? 'good' : 'over';
+    const sign = diff>=0?'+':'';
+    return `<span class="delta-badge ${cls}">${sign}${round1(diff)}g</span>`;
+  }
+  const offMacros = [];
+  if(pctOff(achieved.protein,target.protein)>6) offMacros.push({name:'proteine', val:achieved.protein, tgt:target.protein});
+  if(pctOff(achieved.carbs,target.carbs)>6) offMacros.push({name:'carboidrati', val:achieved.carbs, tgt:target.carbs});
+  if(pctOff(achieved.fat,target.fat)>6) offMacros.push({name:'grassi', val:achieved.fat, tgt:target.fat});
+  const infeasible = offMacros.length>0;
+  const suggestions = {proteine:'una fonte proteica magra (es. petto di pollo, albume, tonno)', carboidrati:'una fonte di carboidrati (es. riso, pasta, patate)', grassi:'una fonte di grassi (es. olio EVO, avocado, frutta secca)'};
+  const overFixedNote = result.overFixedMacros && result.overFixedMacros.length>0 ? `
+    <div class="install-banner" style="background:var(--over-soft);border-color:var(--over);margin-bottom:14px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--over)" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <div><b>Grammi fissi troppo alti.</b> ${result.overFixedMacros.map(m=>`Gli alimenti a grammatura fissa da soli superano già il target di <b>${m}</b> del pasto.`).join(' ')} Riduci le quantità fisse o alza il target del pasto.</div>
+    </div>` : '';
+  const warningBanner = (!result.overFixedMacros || result.overFixedMacros.length===0) && infeasible ? `
+    <div class="install-banner" style="background:var(--over-soft);border-color:var(--over);margin-bottom:14px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--over)" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <div><b>Combinazione non ideale.</b> ${offMacros.map(o=>{
+        const nearZero = o.tgt>0 && o.val/o.tgt < 0.15;
+        return nearZero
+          ? `Per i <b>${o.name}</b> mancano quasi del tutto (${round1(o.val)}g su ${round1(o.tgt)}g target): nessuno degli alimenti scelti ne contiene a sufficienza. Aggiungi ${suggestions[o.name]}.`
+          : `Per i <b>${o.name}</b> non riesco ad avvicinarmi al target entro un margine ragionevole (${round1(o.val)}g su ${round1(o.tgt)}g). Prova a cambiare uno degli alimenti.`;
+      }).join(' ')}</div>
+    </div>` : '';
+  const negNote = result.negWarnings && result.negWarnings.length>0 ? `
+    <div class="install-banner" style="background:var(--over-soft);border-color:var(--over);margin-bottom:14px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--over)" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <div><b>Le fonti scelte non si conciliano.</b> ${result.negWarnings.map(w=>`Per centrare i <b>${w.macro}</b> servirebbe una quantità negativa di <b>${escapeHtml(w.food)}</b>`).join('; ')} — probabilmente gli alimenti fissi coprono già a sufficienza quel macro, oppure una delle 3 fonti non è adatta a questo pasto. Ho impostato quell'alimento a 0g: rivedi la combinazione.</div>
+    </div>` : '';
+  card.innerHTML = `
+    <h3>Grammi calcolati</h3>
+    ${negNote}
+    ${overFixedNote}
+    ${warningBanner}
+    ${result.map(r=>`
+      <div class="result-row">
+        <div class="fname">${escapeHtml(r.food.name)} ${r.fixed?'<span class="delta-badge good" style="margin-left:6px;">fisso</span>':''}</div>
+        <div class="grams">${round0(r.grams)}<span>g</span></div>
+      </div>
+    `).join('')}
+    <div class="divider"></div>
+    <div class="macro-row"><span class="name">Kcal ottenute</span><span class="val mono">${round0(achieved.kcal)} <span style="color:var(--text-muted)">/ ${mealKcal(target)}</span></span></div>
+    <div class="macro-row"><span class="name">Proteine</span><span class="val mono">${round1(achieved.protein)}g ${badge(achieved.protein, target.protein)}</span></div>
+    <div class="macro-row"><span class="name">Carboidrati</span><span class="val mono">${round1(achieved.carbs)}g ${badge(achieved.carbs, target.carbs)}</span></div>
+    <div class="macro-row"><span class="name">Grassi</span><span class="val mono">${round1(achieved.fat)}g ${badge(achieved.fat, target.fat)}</span></div>
+
+    ${result.some(r=>r.grams<1 && !r.fixed) ? '<div class="note">Alcuni alimenti risultano quasi a 0g: con le quantità scelte non contribuiscono al raggiungimento del target. Prova a rimuoverli o a cambiarne la combinazione.</div>' : ''}
+  `;
+}
+
+/* ---- Exact 3x3 solve: 1 carb source + 1 protein source + 1 fat source, net of fixed items ---- */
+function solveMeal3(carbFood, proteinFood, fatFood, fixedItems, target){
+  let fixedContribution = {protein:0, carbs:0, fat:0};
+  fixedItems.forEach(it=>{
+    fixedContribution.protein += it.grams*it.food.protein/100;
+    fixedContribution.carbs += it.grams*it.food.carbs/100;
+    fixedContribution.fat += it.grams*it.food.fat/100;
+  });
+
+  const overFixedMacros = [];
+  if(fixedContribution.protein > target.protein*1.06) overFixedMacros.push('proteine');
+  if(fixedContribution.carbs > target.carbs*1.06) overFixedMacros.push('carboidrati');
+  if(fixedContribution.fat > target.fat*1.06) overFixedMacros.push('grassi');
+
+  const residual = {
+    protein: target.protein - fixedContribution.protein,
+    carbs: target.carbs - fixedContribution.carbs,
+    fat: target.fat - fixedContribution.fat
+  };
+
+  // columns = [carbFood, proteinFood, fatFood], rows = [protein eq, carbs eq, fat eq]
+  const M = [
+    [carbFood.protein/100, proteinFood.protein/100, fatFood.protein/100],
+    [carbFood.carbs/100, proteinFood.carbs/100, fatFood.carbs/100],
+    [carbFood.fat/100, proteinFood.fat/100, fatFood.fat/100]
+  ];
+  const v = [residual.protein, residual.carbs, residual.fat];
+  const x = gaussianSolve3(M, v);
+  if(!x) return null; // singular matrix: the 3 chosen foods are too similar/collinear
+
+  const negWarnings = [];
+  if(x[0] < -0.5) negWarnings.push({food:carbFood.name, macro:'carboidrati'});
+  if(x[1] < -0.5) negWarnings.push({food:proteinFood.name, macro:'proteine'});
+  if(x[2] < -0.5) negWarnings.push({food:fatFood.name, macro:'grassi'});
+
+  const result = [
+    ...fixedItems.map(it=>({food:it.food, grams:it.grams, fixed:true})),
+    {food:carbFood, grams:Math.max(0,x[0]), fixed:false},
+    {food:proteinFood, grams:Math.max(0,x[1]), fixed:false},
+    {food:fatFood, grams:Math.max(0,x[2]), fixed:false}
+  ];
+  result.overFixedMacros = overFixedMacros;
+  result.negWarnings = negWarnings;
+  return result;
+}
+
+function gaussianSolve3(M, v){
+  const n = M.length;
+  const A = M.map((row,i)=>[...row, v[i]]);
+  for(let col=0; col<n; col++){
+    let pivotRow = col;
+    for(let r=col+1;r<n;r++) if(Math.abs(A[r][col])>Math.abs(A[pivotRow][col])) pivotRow=r;
+    if(Math.abs(A[pivotRow][col])<1e-8) return null;
+    [A[col],A[pivotRow]] = [A[pivotRow],A[col]];
+    for(let r=0;r<n;r++){
+      if(r===col) continue;
+      const factor = A[r][col]/A[col][col];
+      for(let c=col;c<=n;c++) A[r][c]-=factor*A[col][c];
+    }
+  }
+  return A.map((row,i)=>row[n]/row[i]);
+}
+
+/* ================= FOODS DB ================= */
+function renderFoodsList(){
+  const q = (document.getElementById('foodsSearch').value||'').toLowerCase();
+  const list = document.getElementById('foodsList');
+  const filtered = state.foods.filter(f=>f.name.toLowerCase().includes(q))
+    .sort((a,b)=>a.name.localeCompare(b.name));
+  if(filtered.length===0){
+    list.innerHTML = `<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3c-3 2-4 5-4 8a4 4 0 008 0c0-3-1-6-4-8z"/></svg>
+      <p>Nessun alimento nel database.<br>Tocca "+ Aggiungi alimento" per iniziare.</p>
+    </div>`;
+    return;
+  }
+  list.innerHTML = filtered.map(f=>`
+    <div class="food-item" data-id="${f.id}">
+      <div>
+        <div class="fname">${escapeHtml(f.name)}</div>
+        <div class="fmacros">${f.kcal}kcal &middot; P${f.protein} C${f.carbs} G${f.fat} /100g</div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+  `).join('');
+  list.querySelectorAll('.food-item').forEach(item=>{
+    item.addEventListener('click', ()=>openFoodModal(item.dataset.id));
+  });
+}
+document.getElementById('foodsSearch').addEventListener('input', renderFoodsList);
+document.getElementById('addFoodBtn').addEventListener('click', ()=>openFoodModal(null));
+document.getElementById('importDefaultsBtn').addEventListener('click', ()=>{
+  const existingNames = new Set(state.foods.map(f=>f.name.toLowerCase()));
+  let added = 0;
+  DEFAULT_FOODS.forEach(f=>{
+    if(!existingNames.has(f.name.toLowerCase())){
+      state.foods.push({...f, id:'f'+Date.now()+Math.random().toString(36).slice(2,7)});
+      added++;
+    }
+  });
+  saveFoods(state.foods);
+  renderFoodsList();
+  toast(added>0 ? `Aggiunti ${added} alimenti predefiniti` : 'Erano già tutti presenti');
+});
+
+function openFoodModal(id){
+  state.editingFoodId = id;
+  const modal = document.getElementById('foodModalBg');
+  const title = document.getElementById('foodModalTitle');
+  const del = document.getElementById('deleteFoodBtn');
+  document.getElementById('scanNote').style.display='none';
+  document.getElementById('scanBtnLabel').textContent = 'Scansiona tabella nutrizionale';
+  if(id){
+    const f = state.foods.find(x=>x.id===id);
+    title.textContent = 'Modifica alimento';
+    del.style.display='block';
+    document.getElementById('fName').value = f.name;
+    document.getElementById('fKcal').value = f.kcal;
+    document.getElementById('fProt').value = f.protein;
+    document.getElementById('fCarb').value = f.carbs;
+    document.getElementById('fFat').value = f.fat;
+    document.getElementById('fFiber').value = f.fiber||'';
+  } else {
+    title.textContent = 'Nuovo alimento';
+    del.style.display='none';
+    ['fName','fKcal','fProt','fCarb','fFat','fFiber'].forEach(id=>document.getElementById(id).value='');
+  }
+  modal.classList.add('show');
+}
+function closeFoodModal(){ document.getElementById('foodModalBg').classList.remove('show'); }
+document.getElementById('foodModalBg').addEventListener('click', (e)=>{ if(e.target.id==='foodModalBg') closeFoodModal(); });
+
+document.getElementById('saveFoodBtn').addEventListener('click', ()=>{
+  const name = document.getElementById('fName').value.trim();
+  const kcal = parseFloat(document.getElementById('fKcal').value);
+  const protein = parseFloat(document.getElementById('fProt').value)||0;
+  const carbs = parseFloat(document.getElementById('fCarb').value)||0;
+  const fat = parseFloat(document.getElementById('fFat').value)||0;
+  const fiber = parseFloat(document.getElementById('fFiber').value)||0;
+  if(!name){ toast('Inserisci un nome'); return; }
+  if(isNaN(kcal)){ toast('Inserisci le kcal'); return; }
+  if(state.editingFoodId){
+    const f = state.foods.find(x=>x.id===state.editingFoodId);
+    Object.assign(f, {name, kcal, protein, carbs, fat, fiber});
+  } else {
+    state.foods.push({id:'f'+Date.now(), name, kcal, protein, carbs, fat, fiber});
+  }
+  saveFoods(state.foods);
+  closeFoodModal();
+  renderFoodsList();
+  toast('Alimento salvato');
+});
+
+document.getElementById('deleteFoodBtn').addEventListener('click', ()=>{
+  if(!state.editingFoodId) return;
+  state.foods = state.foods.filter(f=>f.id!==state.editingFoodId);
+  saveFoods(state.foods);
+  closeFoodModal();
+  renderFoodsList();
+  toast('Alimento eliminato');
+});
+
+/* ---- OCR scan ---- */
+document.getElementById('scanBtn').addEventListener('click', ()=>{
+  document.getElementById('cameraInput').click();
+});
+document.getElementById('cameraInput').addEventListener('change', async (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const label = document.getElementById('scanBtnLabel');
+  const note = document.getElementById('scanNote');
+  label.textContent = 'Lettura in corso...';
+  note.style.display='none';
+  try{
+    const { data: { text } } = await Tesseract.recognize(file, 'ita+eng');
+    const parsed = parseNutritionText(text);
+    if(parsed.kcal!=null) document.getElementById('fKcal').value = parsed.kcal;
+    if(parsed.protein!=null) document.getElementById('fProt').value = parsed.protein;
+    if(parsed.carbs!=null) document.getElementById('fCarb').value = parsed.carbs;
+    if(parsed.fat!=null) document.getElementById('fFat').value = parsed.fat;
+    if(parsed.fiber!=null) document.getElementById('fFiber').value = parsed.fiber;
+    note.style.display='block';
+    note.textContent = 'Valori riconosciuti dalla foto: controllali e correggili prima di salvare, la lettura automatica non è sempre precisa al 100%.';
+  }catch(err){
+    note.style.display='block';
+    note.textContent = 'Non sono riuscito a leggere la tabella. Inserisci i valori manualmente.';
+  }
+  label.textContent = 'Scansiona di nuovo';
+  e.target.value = '';
+});
+
+function parseNutritionText(text){
+  const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const result = {kcal:null, protein:null, carbs:null, fat:null, fiber:null};
+  function firstNumber(str){
+    const m = str.replace(/,/g,'.').match(/(\d+(\.\d+)?)/);
+    return m ? parseFloat(m[1]) : null;
+  }
+  lines.forEach(line=>{
+    const low = line.toLowerCase();
+    const isSub = low.startsWith('di cui') || low.includes('di cui');
+    if(!isSub && (low.includes('energia') || low.includes('kcal')) && result.kcal==null){
+      // prefer a number followed by kcal
+      const m = line.replace(/,/g,'.').match(/(\d+(\.\d+)?)\s*kcal/i);
+      result.kcal = m ? parseFloat(m[1]) : firstNumber(line);
+    }
+    if(!isSub && low.includes('protein') && result.protein==null){
+      result.protein = firstNumber(line.replace(/proteine/i,''));
+    }
+    if(!isSub && (low.includes('carboidrat')) && result.carbs==null){
+      result.carbs = firstNumber(line.replace(/carboidrati/i,''));
+    }
+    if(!isSub && (low.includes('grassi') || low.includes('lipidi')) && result.fat==null){
+      result.fat = firstNumber(line.replace(/grassi|lipidi/i,''));
+    }
+    if(low.includes('fibre') && result.fiber==null){
+      result.fiber = firstNumber(line.replace(/fibre/i,''));
+    }
+  });
+  return result;
+}
+
+/* ================= SETTINGS ================= */
+// Autosave: every mutation of state.settings flows through this, debounced slightly
+// so rapid keystrokes don't hammer localStorage, but nothing is ever lost on nav/close.
+let settingsSaveTimer;
+function autosaveSettings(){
+  clearTimeout(settingsSaveTimer);
+  settingsSaveTimer = setTimeout(()=>{
+    saveSettings(state.settings);
+    flashSavedIndicator();
+  }, 250);
+}
+function flashSavedIndicator(){
+  const el = document.getElementById('autosaveNote');
+  if(!el) return;
+  el.textContent = 'Salvato ✓';
+  el.style.color = 'var(--good)';
+  clearTimeout(flashSavedIndicator._t);
+  flashSavedIndicator._t = setTimeout(()=>{
+    el.textContent = 'Le modifiche si salvano automaticamente';
+    el.style.color = 'var(--text-muted)';
+  }, 1200);
+}
+
+function renderSettings(){
+  const toggle = document.getElementById('settingsDayToggle');
+  toggle.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.type===state.dayType));
+  document.getElementById('dayTypeLabelMeals').textContent = state.dayType==='train' ? 'Giorno di allenamento' : 'Giorno di riposo';
+
+  const t = state.settings[state.dayType];
+  document.getElementById('setKcal').value = t.kcal;
+  document.getElementById('setProt').value = t.protein;
+  document.getElementById('setCarb').value = t.carbs;
+  document.getElementById('setFat').value = t.fat;
+  updateKcalCheck();
+  renderMealsSettingsList();
+}
+
+function renderMealsSettingsList(){
+  if(!state.settings.mealTargets[state.dayType]) state.settings.mealTargets[state.dayType] = {};
+  const mt = state.settings.mealTargets[state.dayType];
+  const list = document.getElementById('mealsSettingsList');
+  list.innerHTML = state.settings.meals.map((m,idx)=>{
+    const target = mt[m.id] || {protein:0,carbs:0,fat:0};
+    return `
+    <div class="card" style="background:var(--panel-alt);padding:12px;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <input type="text" class="mealNameInput" data-idx="${idx}" value="${escapeHtml(m.name)}" style="flex:1;">
+        <button class="btn ghost small removeMealBtn" data-idx="${idx}" style="color:var(--over);flex:0 0 auto;">Rimuovi</button>
+      </div>
+      <div class="field-row">
+        <label class="field" style="margin-bottom:0;"><span>Proteine (g)</span><input type="number" inputmode="decimal" class="mealProtInput" data-id="${m.id}" value="${target.protein}"></label>
+        <label class="field" style="margin-bottom:0;"><span>Carbo (g)</span><input type="number" inputmode="decimal" class="mealCarbInput" data-id="${m.id}" value="${target.carbs}"></label>
+        <label class="field" style="margin-bottom:0;"><span>Grassi (g)</span><input type="number" inputmode="decimal" class="mealFatInput" data-id="${m.id}" value="${target.fat}"></label>
+      </div>
+      <div class="note" style="margin-top:6px;">${mealKcal(target)} kcal</div>
+    </div>
+  `;
+  }).join('');
+
+  list.querySelectorAll('.mealNameInput').forEach(inp=>{
+    inp.addEventListener('input', ()=>{
+      state.settings.meals[inp.dataset.idx].name = inp.value;
+      autosaveSettings();
+    });
+  });
+  list.querySelectorAll('.removeMealBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const idx = parseInt(btn.dataset.idx);
+      const removedId = state.settings.meals[idx].id;
+      state.settings.meals.splice(idx,1);
+      ['train','rest'].forEach(dt=>{
+        if(state.settings.mealTargets[dt]) delete state.settings.mealTargets[dt][removedId];
+      });
+      autosaveSettings();
+      renderMealsSettingsList();
+      updateMealsSumNote();
+    });
+  });
+  ['mealProtInput','mealCarbInput','mealFatInput'].forEach(cls=>{
+    list.querySelectorAll('.'+cls).forEach(inp=>{
+      inp.addEventListener('input', ()=>{
+        const id = inp.dataset.id;
+        if(!mt[id]) mt[id] = {protein:0,carbs:0,fat:0};
+        const key = cls==='mealProtInput'?'protein':cls==='mealCarbInput'?'carbs':'fat';
+        mt[id][key] = parseFloat(inp.value)||0;
+        autosaveSettings();
+        updateMealsSumNote();
+        // update kcal label live without full re-render (keeps focus in the field)
+        const kcalNote = inp.closest('.card').querySelector('.note');
+        if(kcalNote) kcalNote.textContent = mealKcal(mt[id]) + ' kcal';
+      });
+    });
+  });
+  updateMealsSumNote();
+}
+
+function updateMealsSumNote(){
+  const mt = state.settings.mealTargets[state.dayType] || {};
+  const t = state.settings[state.dayType];
+  let sumP=0,sumC=0,sumF=0;
+  state.settings.meals.forEach(m=>{
+    const x = mt[m.id]||{protein:0,carbs:0,fat:0};
+    sumP+=x.protein; sumC+=x.carbs; sumF+=x.fat;
+  });
+  const note = document.getElementById('mealsSumNote');
+  const okP = Math.abs(sumP-t.protein)<=2, okC = Math.abs(sumC-t.carbs)<=2, okF = Math.abs(sumF-t.fat)<=2;
+  if(okP && okC && okF){
+    note.style.color = 'var(--good)';
+    note.textContent = `Somma pasti: P${round0(sumP)} C${round0(sumC)} G${round0(sumF)} — coincide con il target giornaliero.`;
+  } else {
+    note.style.color = 'var(--over)';
+    note.textContent = `Somma pasti: P${round0(sumP)} C${round0(sumC)} G${round0(sumF)} — target giornaliero: P${t.protein} C${t.carbs} G${t.fat}. Modifica i valori o usa "Distribuisci equamente".`;
+  }
+}
+
+['setKcal','setProt','setCarb','setFat'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', ()=>{
+    updateKcalCheck();
+    const t = state.settings[state.dayType];
+    t.kcal = parseFloat(document.getElementById('setKcal').value)||0;
+    t.protein = parseFloat(document.getElementById('setProt').value)||0;
+    t.carbs = parseFloat(document.getElementById('setCarb').value)||0;
+    t.fat = parseFloat(document.getElementById('setFat').value)||0;
+    autosaveSettings();
+    updateMealsSumNote();
+  });
+});
+function updateKcalCheck(){
+  const kcal = parseFloat(document.getElementById('setKcal').value)||0;
+  const p = parseFloat(document.getElementById('setProt').value)||0;
+  const c = parseFloat(document.getElementById('setCarb').value)||0;
+  const f = parseFloat(document.getElementById('setFat').value)||0;
+  const computed = p*4+c*4+f*9;
+  const diff = kcal-computed;
+  const note = document.getElementById('kcalCheckNote');
+  if(Math.abs(diff)<15){
+    note.textContent = `I macro corrispondono alle kcal impostate (${round0(computed)} kcal calcolate).`;
+    note.style.color = 'var(--good)';
+  } else {
+    note.textContent = `Attenzione: i macro corrispondono a ${round0(computed)} kcal, ${diff>0?'mancano':'ci sono'} ${Math.abs(round0(diff))} kcal rispetto al totale impostato.`;
+    note.style.color = 'var(--over)';
+  }
+}
+
+document.getElementById('settingsDayToggle').addEventListener('click', (e)=>{
+  const b = e.target.closest('button'); if(!b) return;
+  state.dayType = b.dataset.type;
+  document.querySelectorAll('#dayTypePill button').forEach(x=>x.classList.toggle('active', x.dataset.type===state.dayType));
+  renderSettings();
+});
+
+document.getElementById('addMealBtn').addEventListener('click', ()=>{
+  const id = 'm'+Date.now();
+  state.settings.meals.push({id, name:'Pasto '+(state.settings.meals.length+1)});
+  ['train','rest'].forEach(dt=>{
+    if(!state.settings.mealTargets[dt]) state.settings.mealTargets[dt]={};
+    state.settings.mealTargets[dt][id] = {protein:0,carbs:0,fat:0};
+  });
+  autosaveSettings();
+  renderMealsSettingsList();
+});
+
+document.getElementById('splitEvenBtn').addEventListener('click', ()=>{
+  splitEvenly(state.settings, state.dayType);
+  autosaveSettings();
+  toast('Macro distribuiti equamente tra i pasti');
+  renderMealsSettingsList();
+});
+
+/* ---------- Utils ---------- */
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ---------- Backup / Restore ---------- */
+document.getElementById('exportBackupBtn').addEventListener('click', ()=>{
+  const backup = {
+    app: 'macro-fit',
+    exportedAt: new Date().toISOString(),
+    settings: state.settings,
+    foods: state.foods,
+    mealSel: state.mealSel
+  };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const dateStr = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `macro-fit-backup-${dateStr}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+  document.getElementById('backupNote').style.color = 'var(--good)';
+  document.getElementById('backupNote').textContent = 'Backup scaricato. Salvalo nei Files o in iCloud Drive per tenerlo al sicuro.';
+});
+
+document.getElementById('importBackupBtn').addEventListener('click', ()=>{
+  document.getElementById('backupFileInput').click();
+});
+document.getElementById('backupFileInput').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const note = document.getElementById('backupNote');
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    try{
+      const data = JSON.parse(reader.result);
+      if(!data.settings || !data.foods){ throw new Error('formato non valido'); }
+      state.settings = data.settings;
+      state.foods = data.foods;
+      state.mealSel = data.mealSel || {};
+      saveSettings(state.settings);
+      saveFoods(state.foods);
+      saveMealSel(state.mealSel);
+      note.style.color = 'var(--good)';
+      note.textContent = 'Backup ripristinato correttamente.';
+      renderSettings();
+      toast('Dati ripristinati dal backup');
+    }catch(err){
+      note.style.color = 'var(--over)';
+      note.textContent = 'Questo file non sembra un backup valido di Macro Fit.';
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+/* ---------- Daily reset: clears yesterday's computed results, keeps food choices ---------- */
+function clearAllMealResults(){
+  Object.keys(state.mealSel).forEach(dt=>{
+    Object.keys(state.mealSel[dt]).forEach(mealId=>{
+      delete state.mealSel[dt][mealId].result;
+    });
+  });
+  saveMealSel(state.mealSel);
+}
+function checkNewDay(){
+  const today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
+  const last = localStorage.getItem(LS_LASTDATE);
+  if(last !== today){
+    clearAllMealResults();
+    localStorage.setItem(LS_LASTDATE, today);
+  }
+}
+document.getElementById('resetTodayBtn').addEventListener('click', ()=>{
+  clearAllMealResults();
+  renderHome();
+  toast('Pasti di oggi azzerati');
+});
+
+/* ---------- Init ---------- */
+if(!state.settings.mealTargets || !state.settings.mealTargets.train){
+  splitEvenly(state.settings,'train'); splitEvenly(state.settings,'rest'); saveSettings(state.settings);
+}
+checkNewDay();
+renderHome();
+
+})();
+</script>
+</body>
+</html>
